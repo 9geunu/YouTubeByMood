@@ -1,4 +1,4 @@
-package com.example.youtubebymood.core;
+package com.example.youtubebymood.core.model;
 
 import com.google.api.client.util.DateTime;
 
