@@ -1,4 +1,4 @@
-package com.example.youtubebymood.core;
+package com.example.youtubebymood.sync;
 
 import android.content.Context;
 
