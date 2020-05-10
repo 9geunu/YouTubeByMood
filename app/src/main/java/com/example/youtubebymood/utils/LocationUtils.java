@@ -1,4 +1,4 @@
-package com.example.youtubebymood.Utils;
+package com.example.youtubebymood.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,10 +12,7 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-public class LocationTask extends ActivityCompat {
+public class LocationUtils extends ActivityCompat {
     private static LocationManager locationManager;
     private static Location location;
     private static double latitude;
