@@ -21,12 +21,15 @@ public class WeatherUtils {
         cloudyTag.add(new HashTagModel("#잔잔한","잔잔한 노래"));
 
         rainTag.add(new HashTagModel("#비와_어울리는","비 오는 날 노래"));
+        rainTag.add(new HashTagModel("#뉴에이지", "감성 뉴에이지"));
 
         clearTag.add(new HashTagModel("#신나는", "신나는 노래"));
         clearTag.add(new HashTagModel("#밝은", "밝은 노래"));
         clearTag.add(new HashTagModel("#맑은_날", "맑은 날 노래"));
+        clearTag.add(new HashTagModel("#그루브", "그루브 노래"));
 
         snowTag.add(new HashTagModel("#눈이_오면", "눈 오는 날 노래"));
+        snowTag.add(new HashTagModel("#크리스마스", "크리스마스 캐롤"));
 
         unknownTag.add(new HashTagModel("#Error", "아무 노래"));
 
@@ -103,41 +106,6 @@ public class WeatherUtils {
         return R.drawable.ic_storm;
     }
 
-    public static int getQueryForWeatherCondition(int weatherId){
-        if (weatherId >= 200 && weatherId <= 232) {
-            return R.drawable.ic_storm;
-        } else if (weatherId >= 300 && weatherId <= 321) {
-            return R.drawable.ic_light_rain;
-        } else if (weatherId >= 500 && weatherId <= 504) {
-            return R.drawable.ic_rain;
-        } else if (weatherId == 511) {
-            return R.drawable.ic_snow;
-        } else if (weatherId >= 520 && weatherId <= 531) {
-            return R.drawable.ic_rain;
-        } else if (weatherId >= 600 && weatherId <= 622) {
-            return R.drawable.ic_snow;
-        } else if (weatherId >= 701 && weatherId <= 761) {
-            return R.drawable.ic_fog;
-        } else if (weatherId == 761 || weatherId == 771 || weatherId == 781) {
-            return R.drawable.ic_storm;
-        } else if (weatherId == 800) {
-            return R.drawable.ic_clear;
-        } else if (weatherId == 801) {
-            return R.drawable.ic_light_clouds;
-        } else if (weatherId >= 802 && weatherId <= 804) {
-            return R.drawable.ic_cloudy;
-        } else if (weatherId >= 900 && weatherId <= 906) {
-            return R.drawable.ic_storm;
-        } else if (weatherId >= 958 && weatherId <= 962) {
-            return R.drawable.ic_storm;
-        } else if (weatherId >= 951 && weatherId <= 957) {
-            return R.drawable.ic_clear;
-        }
-
-        Log.e(Constants.LOGTAG, "Unknown Weather: " + weatherId);
-        return R.drawable.ic_storm;
-    }
-
     public static int getSuggestionIdForWeatherCondition(int weatherId){
         if (weatherId >= 200 && weatherId <= 232) {
             return R.string.cloudy_suggestion;
@@ -171,5 +139,48 @@ public class WeatherUtils {
 
         Log.e(Constants.LOGTAG, "Unknown Weather: " + weatherId);
         return R.string.unknown_suggestion;
+    }
+
+    public static int getBackgroundIdForWeatherCondition(int weatherId){
+        if (weatherId >= 200 && weatherId <= 232) {
+            return R.drawable.cloudy;
+        } else if (weatherId >= 300 && weatherId <= 321) {
+            return R.drawable.rainy;
+        } else if (weatherId >= 500 && weatherId <= 504) {
+            return R.drawable.rainy;
+        } else if (weatherId == 511) {
+            return R.drawable.snowy;
+        } else if (weatherId >= 520 && weatherId <= 531) {
+            return R.drawable.rainy;
+        } else if (weatherId >= 600 && weatherId <= 622) {
+            return R.drawable.snowy;
+        } else if (weatherId >= 701 && weatherId <= 761) {
+            return R.drawable.cloudy;
+        } else if (weatherId == 761 || weatherId == 771 || weatherId == 781) {
+            return R.drawable.cloudy;
+        } else if (weatherId == 800) {
+            return R.drawable.sunny;
+        } else if (weatherId == 801) {
+            return R.drawable.sunny;
+        } else if (weatherId >= 802 && weatherId <= 804) {
+            return R.drawable.cloudy;
+        } else if (weatherId >= 900 && weatherId <= 906) {
+            return R.drawable.cloudy;
+        } else if (weatherId >= 958 && weatherId <= 962) {
+            return R.drawable.cloudy;
+        } else if (weatherId >= 951 && weatherId <= 957) {
+            return R.drawable.sunny;
+        }
+
+        Log.e(Constants.LOGTAG, "Unknown Weather: " + weatherId);
+        return R.drawable.snowy;
+    }
+
+    public static boolean isClear(int weatherId){
+        return weatherId == 800 || weatherId == 801 || weatherId >= 951 && weatherId <= 957;
+    }
+
+    public static boolean isRainy(int weatherId){
+        return (weatherId >= 300 && weatherId <= 321) || (weatherId >= 500 && weatherId <= 504) || (weatherId >= 520 && weatherId <= 531);
     }
 }
