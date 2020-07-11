@@ -1,6 +1,8 @@
 package com.example.youtubebymood.core;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubebymood.R;
+import com.example.youtubebymood.core.model.CurrentWeatherModel;
 import com.example.youtubebymood.core.model.HashTagModel;
+import com.example.youtubebymood.utils.WeatherUtils;
 
 import java.util.ArrayList;
 
@@ -47,7 +51,18 @@ public class HashTagAdapter extends RecyclerView.Adapter<HashTagAdapter.HashTagA
     public void onBindViewHolder(@NonNull HashTagAdapterViewHolder holder, int position) {
         final HashTagModel hashTagModel = hashTagModelArrayList.get(position);
 
-        holder.hashTag.setText(hashTagModel.getTag());
+        int currentWeatherId = CurrentWeatherModel.getWeatherId();
+        Log.d("tag", String.valueOf(currentWeatherId));
+
+        if (WeatherUtils.isRainy(currentWeatherId) || WeatherUtils.isClear(currentWeatherId)){
+            holder.hashTag.setTextColor(Color.WHITE);
+            holder.hashTag.setText(hashTagModel.getTag());
+        }
+        else {
+            holder.hashTag.setTextColor(Color.BLACK);
+            holder.hashTag.setText(hashTagModel.getTag());
+        }
+
     }
 
     @Override
