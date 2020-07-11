@@ -119,6 +119,7 @@ public class Search {
             video = youtube.videos().list("contentDetails,statistics");
             video.setKey(Constants.APIKEY);
             video.setId(videoId);
+            video.setFields("items(contentDetails/duration,statistics/viewCount)");
             VideoListResponse videoResponse = video.execute();
 
             List<Video> videoResult = videoResponse.getItems();
