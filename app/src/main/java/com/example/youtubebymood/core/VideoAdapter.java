@@ -52,7 +52,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoAdapter
 
         holder.title.setText(youtubeVideoModel.getTitle());
         holder.duration.setText(youtubeVideoModel.getDuration());
-        holder.uploadTime.setText(youtubeVideoModel.getUploadTime());
         holder.uploaderName.setText(youtubeVideoModel.getUploderName());
         holder.videoViews.setText(youtubeVideoModel.getViewCount());
 
@@ -104,7 +103,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoAdapter
         final TextView title;
         final TextView videoViews;
         final TextView uploaderName;
-        final TextView uploadTime;
         final TextView duration;
 
         VideoAdapterViewHolder(View view) {
@@ -114,7 +112,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoAdapter
             title = (TextView) view.findViewById(R.id.video_title);
             videoViews = (TextView) view.findViewById(R.id.video_views);
             uploaderName = (TextView) view.findViewById(R.id.uploader_name);
-            uploadTime = (TextView) view.findViewById(R.id.upload_time);
             duration = (TextView) view.findViewById(R.id.duration);
 
             view.setOnClickListener(this);
