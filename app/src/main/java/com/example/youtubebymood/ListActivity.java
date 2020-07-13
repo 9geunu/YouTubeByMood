@@ -72,7 +72,7 @@ public class ListActivity extends AppCompatActivity implements VideoAdapter.Vide
 
     @Override
     public void onClick(String videoId) {
-        startActivity(new Intent(ListActivity.this, YouTubePlayerActivity.class)
+        startActivity(new Intent(ListActivity.this, WebViewActivity.class)
                 .putExtra("video_id", videoId));
     }
 
