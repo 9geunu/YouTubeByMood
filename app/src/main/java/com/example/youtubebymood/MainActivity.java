@@ -1,13 +1,21 @@
 package com.example.youtubebymood;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -27,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CurrentWeatherMod
     private TextView musicSuggestion;
     private Handler mainThreadHandler;
     private RecyclerView recyclerView;
+    private ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements CurrentWeatherMod
     @Override
     public void onInitFinished() {
         mainThreadHandler.post(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void run() {
                 setUpWeather();
@@ -50,16 +60,25 @@ public class MainActivity extends AppCompatActivity implements CurrentWeatherMod
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void setUpWeather(){
         weather = (ImageView) findViewById(R.id.iv_weather);
         musicSuggestion = (TextView) findViewById(R.id.tv_music_suggestion);
+        layout = findViewById(R.id.main_background);
 
         int weatherId = CurrentWeatherModel.getWeatherId();
         int weatherImageId = WeatherUtils.getSmallArtResourceIdForWeatherCondition(weatherId);
         int suggestionId = WeatherUtils.getSuggestionIdForWeatherCondition(weatherId);
+        int backgroundId = WeatherUtils.getBackgroundIdForWeatherCondition(weatherId);
 
+        layout.setBackground(ContextCompat.getDrawable(this, backgroundId));
         weather.setImageResource(weatherImageId);
-        musicSuggestion.setText(suggestionId);
+
+
+        if (WeatherUtils.isClear(weatherId) || WeatherUtils.isRainy(weatherId)){
+            musicSuggestion.setText(suggestionId);
+            musicSuggestion.setTextColor(Color.WHITE);
+        } else musicSuggestion.setText(suggestionId);
 
         setUpRecyclerView();
         populateRecyclerView(weatherId);
