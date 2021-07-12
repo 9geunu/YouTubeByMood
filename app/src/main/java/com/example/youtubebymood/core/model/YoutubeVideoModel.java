@@ -49,7 +49,7 @@ public class YoutubeVideoModel {
     }
 
     public String getViewCount() {
-        return viewCount;
+        return "조회수 " + viewCount + "회";
     }
 
     @Override

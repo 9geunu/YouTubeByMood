@@ -2,6 +2,7 @@ package com.example.youtubebymood.utils;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import java.util.List;
 
 public class LocationUtils extends ActivityCompat {
     private static LocationManager locationManager;
@@ -69,8 +72,7 @@ public class LocationUtils extends ActivityCompat {
     }
 
     private static void requestPermission(Context context){
-        ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION},1000);
+
     }
 
     private static void updateWithNewLocation(Location location) {

@@ -19,6 +19,7 @@ public class WeatherUtils {
 
         cloudyTag.add(new HashTagModel("#몽환적인","몽환적인 노래"));
         cloudyTag.add(new HashTagModel("#잔잔한","잔잔한 노래"));
+        cloudyTag.add(new HashTagModel("#감성적인","감성적인 노래"));
 
         rainTag.add(new HashTagModel("#비와_어울리는","비 오는 날 노래"));
         rainTag.add(new HashTagModel("#뉴에이지", "감성 뉴에이지"));

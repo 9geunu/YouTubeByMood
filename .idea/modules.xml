@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/YouTubeByMood.iml" filepath="$PROJECT_DIR$/YouTubeByMood.iml" group="YouTubeByMood" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="YouTubeByMood/app" />
+      <module fileurl="file://$PROJECT_DIR$/YouTubeByMood.iml" filepath="$PROJECT_DIR$/YouTubeByMood.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/YouTubeByMood.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/YouTubeByMood.app.iml" />
     </modules>
   </component>
 </project>

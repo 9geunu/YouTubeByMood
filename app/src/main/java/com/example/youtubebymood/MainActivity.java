@@ -3,10 +3,12 @@ package com.example.youtubebymood;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -26,6 +28,7 @@ import com.example.youtubebymood.core.HashTagAdapter;
 import com.example.youtubebymood.core.model.CurrentWeatherModel;
 import com.example.youtubebymood.core.model.HashTagModel;
 import com.example.youtubebymood.sync.WeatherSyncUtils;
+import com.example.youtubebymood.utils.LocationUtils;
 import com.example.youtubebymood.utils.WeatherUtils;
 
 import java.util.ArrayList;
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements CurrentWeatherMod
         mainThreadHandler = new Handler();
 
         CurrentWeatherModel.setCurrentWeatherModelListener(this);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1000);
 
         WeatherSyncUtils.initialize(this);
     }

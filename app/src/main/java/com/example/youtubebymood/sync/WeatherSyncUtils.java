@@ -1,5 +1,6 @@
 package com.example.youtubebymood.sync;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -92,12 +93,12 @@ public class WeatherSyncUtils {
          */
         scheduleFirebaseJobDispatcherSync(context);
 
-
-        if (CurrentWeatherModel.getWeatherId() == 0 ||
-        CurrentWeatherModel.getWeatherMain() == null ||
-        CurrentWeatherModel.getWeatherDescription() == null){
-            startImmediateSync(context);
-        }
+        startImmediateSync(context);
+//        if (CurrentWeatherModel.getWeatherId() == 0 ||
+//        CurrentWeatherModel.getWeatherMain() == null ||
+//        CurrentWeatherModel.getWeatherDescription() == null){
+//            startImmediateSync(context);
+//        }
     }
 
     public static void startImmediateSync(@NonNull final Context context) {

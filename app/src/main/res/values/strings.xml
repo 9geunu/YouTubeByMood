@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">YouTubeByMood</string>
-    
+
     <!--흐린 날-->
     <string name="cloudy_suggestion">흐린 날 듣기 좋은 음악</string>
-    
+
     <!--비 오는 날-->
     <string name="rainy_suggestion">비 오는 날 듣기 좋은 음악</string>
 

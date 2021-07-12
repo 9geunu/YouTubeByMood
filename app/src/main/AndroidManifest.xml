@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/logo_real_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".WebViewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -30,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".YouTubePlayerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,15 +41,13 @@
         <service
             android:name=".sync.WeatherSyncIntentService"
             android:exported="false" />
-
         <service
             android:name=".sync.WeatherFirebaseJobService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>
